@@ -1,10 +1,14 @@
 # OnTheMove-Backend
 Dit project is gebaseerd op [dit](https://github.com/francescomalatesta/laravel-api-boilerplate-jwt) github project.
-De JWT authenticatie is eruit en vervangen door authenticatie d.m.v RocketChat.
+De JWT authenticatie is eruit en vervangen door authenticatie d.m.v RocketChat en is de backend voor de #on-the-move-client
+
+[![BCH compliance](https://bettercodehub.com/edge/badge/cookiemonster/on-the-move-backend?branch=master)](https://bettercodehub.com/)
+
 
 ## Installatie
 De backend is geïnstalleerd op een kale Ubuntu Machine. Hieronder de instructies stap voor stap.
 
+```
 sudo apt-get install -y php7.1 php7.1-curl php7.1-common php7.1-cli php7.1-mysql php7.1-mbstring php7.1-fpm php7.1-xml php7.1-zip
 
 systemctl start php7.1-fpm
@@ -19,7 +23,8 @@ sudo apt-get install -y composer
 
 cd /etc/nginx/
 sudo nano sites-available/onthemove-backend
-
+```
+```
 server {
         listen 80;
         listen [::]:80 ipv6only=on;
@@ -49,7 +54,8 @@ server {
                 include fastcgi_params;
         }
 }
-
+```
+```
 sudo ln -s /etc/nginx/sites-available/laravel /etc/nginx/sites-enabled/
 systemctl restart nginx
 
@@ -59,7 +65,7 @@ sudo chown -R www-data:root /home/beheerder/onthemove-backend
 sudo chmod 755 /home/otm/onthemove-backend/storage/
 cd onthemove-backend
 composer install
-
+```
 Mysql
     CREATE USER “USERNAME”
     CREATE DATABASE “DATABASENAME”
